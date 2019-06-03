@@ -13,7 +13,7 @@ app.get("/scrape", function(req, res){
         result.summary = $(this).children('a').children('.text').children('.description').text()
         result.link = $(this).children('a').attr('href')
         console.log(result)
-        db.Article.create(result).then(function(dbArticle){
+        db.Article.update({headline: result.headline},{$set: result},{upsert:true}).then(function(dbArticle){
             console.log(dbArticle)
         }).catch(function(err){
             console.log(err)

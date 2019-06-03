@@ -1,0 +1,22 @@
+<h1 id='main-page-headline'>Magic Articles</h1>
+
+<ul>
+    {{#each articles}}
+    <li>
+        <h2>{{this.headline}}</h2>
+        <p>{{this.summary}}</p>
+        <a href='https://magic.wizards.com/{{this.link}}'>{{this.link}}</a>
+        <br>
+        <button class='load-comments-button' data-attribute='{{this._id}}'>Load Comments</button>
+        <br><br>
+        <div id='comment-{{this._id}}'></div>
+        <input id='titleinput-{{this._id}}' name='title-{{this._id}}' >
+        <br>
+        <br>
+        <textarea id='bodyinput-{{this._id}}' name='body-{{this._id}}'></textarea>
+        <br>
+        <button class='save-comment-button' data-attribute='{{this._id}}'>Save Note</button>
+        
+    </li>
+    {{/each}}
+</ul>
